@@ -57,7 +57,7 @@ export default function Header({ page = "home" }: Props) {
 						<S.TitleMoreLighter
 							color="#ffffff"
 							fontSize={32}>
-							Italian
+							Italiana
 						</S.TitleMoreLighter>
 						<Title
 							as="h1"
