@@ -3,6 +3,7 @@ import { colors } from "../../styles"
 
 type ButtonStyleProps = {
 	color: "light" | "dark"
+	isNonClickable: boolean
 }
 
 export const ButtonStyle = styled.button<ButtonStyleProps>`
@@ -20,8 +21,17 @@ export const ButtonStyle = styled.button<ButtonStyleProps>`
 	line-height: 16px;
 	text-align: center;
 
-	&:hover {
-		cursor: pointer;
-		filter: brightness(96%);
+	${props =>
+		!props.isNonClickable
+			? `
+                &:hover {
+                    cursor: pointer;
+                    filter:brightness(105%);
+                }
+                &:active {
+                    filter: brightness(112%);
+                }`
+			: ""}
+	&:active {
 	}
 `

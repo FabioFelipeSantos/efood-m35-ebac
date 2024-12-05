@@ -7,23 +7,20 @@ import { useNavigate } from "react-router-dom"
 
 type Props = {
 	page?: "home" | "profile"
+	typeRestaurant?: string
+	restaurantName?: string
 }
 
-export default function Header({ page = "home" }: Props) {
+export default function Header({ page = "home", restaurantName = "", typeRestaurant = "" }: Props) {
 	const navigate = useNavigate()
 
 	return (
-		<S.HeaderContainer
-			page={page}
-			style={{ backgroundImage: `url(${fundo})` }}>
+		<S.HeaderContainer page={page} style={{ backgroundImage: `url(${fundo})` }}>
 			<div className="container">
 				<S.NavContainer>
 					{page === "home" ? (
 						<S.ImageAlone>
-							<img
-								src={logo}
-								alt="EFOOD Logo"
-							/>
+							<img src={logo} alt="EFOOD Logo" />
 						</S.ImageAlone>
 					) : (
 						<>
@@ -43,9 +40,7 @@ export default function Header({ page = "home" }: Props) {
 				</S.NavContainer>
 
 				{page === "home" && (
-					<Title
-						color={colors.secondaryLight}
-						fontSize={36}>
+					<Title color={colors.secondaryLight} fontSize={36}>
 						Viva experiências gastronômicas no conforto de sua casa
 					</Title>
 				)}
@@ -54,16 +49,11 @@ export default function Header({ page = "home" }: Props) {
 			{page !== "home" && (
 				<S.ProfileImage style={{ backgroundImage: `url(${profileBg})` }}>
 					<div className="container">
-						<S.TitleMoreLighter
-							color="#ffffff"
-							fontSize={32}>
-							Italiana
+						<S.TitleMoreLighter color="#ffffff" fontSize={32}>
+							{typeRestaurant}
 						</S.TitleMoreLighter>
-						<Title
-							as="h1"
-							color="#ffffff"
-							fontSize={32}>
-							La Dolce Vita Trattoria
+						<Title as="h1" color="#ffffff" fontSize={32}>
+							{restaurantName}
 						</Title>
 					</div>
 				</S.ProfileImage>

@@ -1,18 +1,15 @@
-import { useNavigate } from "react-router-dom"
 import { ButtonStyle } from "./styles"
 
 type Props = {
 	text: string
 	textColor: "light" | "dark"
+	isNonClickable?: boolean
+	onClick?: () => void
 }
 
-export default function Button({ text, textColor }: Props) {
-	const navigate = useNavigate()
-
+export default function Button({ text, textColor, isNonClickable = false, onClick = () => {} }: Props) {
 	return (
-		<ButtonStyle
-			onClick={() => navigate("/profile")}
-			color={textColor}>
+		<ButtonStyle isNonClickable={isNonClickable} color={textColor} onClick={onClick}>
 			{text}
 		</ButtonStyle>
 	)

@@ -8,48 +8,37 @@ type Props = {
 	description: string
 	image: string
 	rating?: number | null
-	topButton?: string
-	isHighlight: boolean
+	restaurantType?: string
+	isHighlight?: boolean
 	theme: "light" | "dark"
+	onButtonClick: () => void
 }
 
-export default function Dish({
+export default function Card({
 	title,
 	description,
 	rating = null,
 	image,
 	theme,
-	topButton = "",
-	isHighlight,
+	restaurantType = "",
+	isHighlight = false,
+	onButtonClick,
 }: Props) {
 	return (
 		<S.CardContainer theme={theme}>
 			<S.ImageContainer>
-				<img
-					src={image}
-					alt="Foto de um dos pratos da casa"
-				/>
+				<img src={image} alt="Foto de um dos pratos da casa" />
 			</S.ImageContainer>
 
-			{topButton !== "" && (
+			{restaurantType !== "" && (
 				<S.TopButtonsContainer>
-					{isHighlight && (
-						<Button
-							text="Destaque da semana"
-							textColor={theme}
-						/>
-					)}
-					<Button
-						text={topButton}
-						textColor={theme}
-					/>
+					{isHighlight && <Button text="Destaque da semana" textColor={theme} isNonClickable />}
+					<Button text={restaurantType} textColor={theme} onClick={onButtonClick} />
 				</S.TopButtonsContainer>
 			)}
 
 			<S.TitleContainer>
-				<Title
-					fontSize={18}
-					color={theme === "light" ? colors.secondaryLight : colors.mainLight}>
+				<Title fontSize={18} color={theme === "light" ? colors.secondaryLight : colors.mainLight}>
 					{title}
 				</Title>
 				{rating && (
@@ -61,10 +50,7 @@ export default function Dish({
 							{rating}
 						</Title>
 
-						<img
-							src={star}
-							alt="Estrela da avaliação"
-						/>
+						<img src={star} alt="Estrela da avaliação" />
 					</S.RatingContainer>
 				)}
 			</S.TitleContainer>
@@ -73,6 +59,7 @@ export default function Dish({
 			<Button
 				text={theme === "light" ? "Saiba mais" : "Adicionar ao Carrinho"}
 				textColor={theme}
+				onClick={onButtonClick}
 			/>
 		</S.CardContainer>
 	)

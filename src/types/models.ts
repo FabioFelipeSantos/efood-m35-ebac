@@ -1,9 +1,28 @@
-export type DishType = {
+// https://fake-api-tau.vercel.app/api/efood/restaurantes
+export type RestaurantType = {
 	id: number
-	title: string
-	description: string
-	image: string
-	isHighlight: boolean
+	titulo: string
+	destacado: boolean
+	tipo: string
+	avaliacao?: number | undefined
+	descricao: string
+	capa: string
+	cardapio: {
+		id: number
+		foto: string
+		preco: number
+		nome: string
+		descricao: string
+		porcao: string
+	}[]
 	topButton?: string
-	rating?: number | undefined
+}
+
+export type Menu = {
+	id: number
+	foto: string
+	preco: number
+	nome: string
+	descricao: string
+	porcao: string
 }
