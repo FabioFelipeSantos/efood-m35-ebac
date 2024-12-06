@@ -36,6 +36,7 @@ export default function Profile({ restaurants }: Props) {
 				page="profile"
 				restaurantName={restaurant.titulo}
 				typeRestaurant={capitalizeWords(restaurant.tipo)}
+				backgroundImageUrl={restaurant.capa}
 			/>
 
 			<div className="container">

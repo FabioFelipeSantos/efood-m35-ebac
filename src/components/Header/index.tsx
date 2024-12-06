@@ -9,9 +9,15 @@ type Props = {
 	page?: "home" | "profile"
 	typeRestaurant?: string
 	restaurantName?: string
+	backgroundImageUrl?: string
 }
 
-export default function Header({ page = "home", restaurantName = "", typeRestaurant = "" }: Props) {
+export default function Header({
+	page = "home",
+	restaurantName = "",
+	typeRestaurant = "",
+	backgroundImageUrl = "",
+}: Props) {
 	const navigate = useNavigate()
 
 	return (
@@ -47,7 +53,7 @@ export default function Header({ page = "home", restaurantName = "", typeRestaur
 			</div>
 
 			{page !== "home" && (
-				<S.ProfileImage style={{ backgroundImage: `url(${profileBg})` }}>
+				<S.ProfileImage style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
 					<div className="container">
 						<S.TitleMoreLighter color="#ffffff" fontSize={32}>
 							{typeRestaurant}

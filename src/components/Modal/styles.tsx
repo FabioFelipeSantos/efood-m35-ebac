@@ -14,7 +14,7 @@ export const ModalContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 
-	animation: modalOpen 0.4s linear 1;
+	animation: modalOpen 0.3s linear 1;
 
 	@keyframes modalOpen {
 		from {
