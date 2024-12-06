@@ -2,7 +2,6 @@ import logo from "../../assets/logo.png"
 import { colors, Title } from "../../styles"
 import * as S from "./styles"
 import fundo from "../../assets/fundo.png"
-import profileBg from "../../assets/profile_background.png"
 import { useNavigate } from "react-router-dom"
 
 type Props = {
