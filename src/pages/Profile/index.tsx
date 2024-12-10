@@ -3,16 +3,21 @@ import { Menu, RestaurantType } from "../../types/models"
 import Header from "../../components/Header"
 import { useParams } from "react-router-dom"
 import { ListCardsContainer } from "../../styles"
-// import capitalizeWords from "../../utils/capitalizeWord"
 import Card from "../../components/Card"
 import capitalizeWords from "../../utils/capitalizeWord"
 import Modal from "../../components/Modal"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
+import { closeCart, isCartOpen, openCart } from "../../store/reducers/cartSlice"
+import Cart from "../../components/Cart"
 
 type Props = {
 	restaurants: RestaurantType[]
 }
 
 export default function Profile({ restaurants }: Props) {
+	const cartIsOpen = useAppSelector(state => isCartOpen(state))
+	const dispatch = useAppDispatch()
+
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [dishToOpen, setDishToOpen] = useState<Menu>()
 
@@ -54,7 +59,12 @@ export default function Profile({ restaurants }: Props) {
 				</ListCardsContainer>
 			</div>
 
+			<button onClick={() => dispatch(openCart())}>Open Cart</button>
+			<button onClick={() => dispatch(closeCart())}>Close Cart</button>
+
 			{isModalOpen && <Modal dish={dishToOpen!} handlingClose={() => setIsModalOpen(false)} />}
+
+			{cartIsOpen && <Cart />}
 		</>
 	)
 }
