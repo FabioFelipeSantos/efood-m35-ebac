@@ -23,10 +23,23 @@ export const CartContainer = styled.aside`
 	padding: 32px 8px;
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	background-color: ${colors.secondaryLight};
 	z-index: 1;
 	color: ${colors.mainLight};
+	animation: openCart 0.3s linear 1;
+
+	@keyframes openCart {
+		from {
+			right: -360px;
+			opacity: 0;
+		}
+
+		to {
+			right: 0;
+			opacity: 1;
+		}
+	}
 `
 
 export const CartItemsList = styled.ul`
@@ -94,4 +107,8 @@ export const CartInfos = styled.div`
 		align-items: center;
 		justify-content: space-between;
 	}
+`
+
+export const EmptyCarInfo = styled(Title)`
+	text-align: center;
 `

@@ -6,8 +6,8 @@ import { ListCardsContainer } from "../../styles"
 import Card from "../../components/Card"
 import capitalizeWords from "../../utils/capitalizeWord"
 import Modal from "../../components/Modal"
-import { useAppDispatch, useAppSelector } from "../../store/hooks"
-import { closeCart, isCartOpen, openCart } from "../../store/reducers/cartSlice"
+import { useAppSelector } from "../../store/hooks"
+import { isCartOpen } from "../../store/reducers/cartSlice"
 import Cart from "../../components/Cart"
 
 type Props = {
@@ -16,7 +16,6 @@ type Props = {
 
 export default function Profile({ restaurants }: Props) {
 	const cartIsOpen = useAppSelector(state => isCartOpen(state))
-	const dispatch = useAppDispatch()
 
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [dishToOpen, setDishToOpen] = useState<Menu>()
@@ -58,9 +57,6 @@ export default function Profile({ restaurants }: Props) {
 					))}
 				</ListCardsContainer>
 			</div>
-
-			<button onClick={() => dispatch(openCart())}>Open Cart</button>
-			<button onClick={() => dispatch(closeCart())}>Close Cart</button>
 
 			{isModalOpen && <Modal dish={dishToOpen!} handlingClose={() => setIsModalOpen(false)} />}
 

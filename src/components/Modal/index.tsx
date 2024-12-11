@@ -5,6 +5,8 @@ import * as S from "./styles"
 import { Title } from "../../styles"
 import { Menu } from "../../types/models"
 import changeCurrency from "../../utils/changeCurrency"
+import { useAppDispatch } from "../../store/hooks"
+import { addItemToCart, openCart } from "../../store/reducers/cartSlice"
 
 type Props = {
 	dish: Menu
@@ -12,6 +14,12 @@ type Props = {
 }
 
 export default function Modal({ dish, handlingClose }: Props) {
+	const dispatch = useAppDispatch()
+
+	function handlingAddItem() {
+		dispatch(addItemToCart(dish))
+		dispatch(openCart())
+	}
 	return (
 		<>
 			<S.ModalContainer onClick={handlingClose}>
@@ -35,6 +43,7 @@ export default function Modal({ dish, handlingClose }: Props) {
 							<Button
 								text={`Adicionar ao carrinho - ${changeCurrency(dish.preco)}`}
 								textColor="dark"
+								onClick={handlingAddItem}
 							/>
 						</S.ModalInfoDetails>
 					</S.ModalInfo>
