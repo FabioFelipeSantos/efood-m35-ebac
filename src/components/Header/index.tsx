@@ -3,6 +3,8 @@ import { colors, Title } from "../../styles"
 import * as S from "./styles"
 import fundo from "../../assets/fundo.png"
 import { useNavigate } from "react-router-dom"
+import { closeCart, isCartOpen, numberOfItemsOnCart, openCart } from "../../store/reducers/cartSlice"
+import { useAppDispatch, useAppSelector } from "../../store/hooks"
 
 type Props = {
 	page?: "home" | "profile"
@@ -18,7 +20,20 @@ export default function Header({
 	backgroundImageUrl = "",
 }: Props) {
 	const navigate = useNavigate()
+	const dispatch = useAppDispatch()
+	const numberItensInCart = useAppSelector(state => numberOfItemsOnCart(state))
+	const cartOpened = useAppSelector(state => isCartOpen(state))
 
+	function formatCartItemNumber() {
+		if (numberItensInCart === 0) return "Não há items no carrinho"
+		else if (numberItensInCart === 1) return `${numberItensInCart} produto no carrinho`
+		else return `${numberItensInCart} produtos no carrinho`
+	}
+
+	function handleClickCart() {
+		if (cartOpened) dispatch(closeCart())
+		else dispatch(openCart())
+	}
 	return (
 		<S.HeaderContainer page={page} style={{ backgroundImage: `url(${fundo})` }}>
 			<div className="container">
@@ -36,9 +51,9 @@ export default function Header({
 								alt="EFOOD Logo"
 								title="Clique para voltar para a página anterior"
 							/>
-							<S.CartInfo>
-								<span>0 </span>
-								produto(s) no carrinho
+							<S.CartInfo onClick={handleClickCart}>
+								{formatCartItemNumber()}
+								<span>🛒</span>
 							</S.CartInfo>
 						</>
 					)}

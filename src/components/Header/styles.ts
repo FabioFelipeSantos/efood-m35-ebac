@@ -96,5 +96,18 @@ export const CartInfo = styled.p`
 	color: ${colors.secondaryLight};
 	font-size: 18px;
 	font-weight: 900;
-	text-align: right;
+	/* text-align: right; */
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	span {
+		margin-left: 4px;
+		font-size: 28px;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
 `
