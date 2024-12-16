@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const initialState: DeliveryInfo = {
-	fullName: "Fábio Santos",
-	address: { cep: "75800104", city: "Jataí", number: 666, street: "Rua 22", moreInfo: "" },
+	fullName: "",
+	address: { cep: "", city: "", number: 0, street: "", moreInfo: "" },
 }
 
 const deliverySlice = createSlice({

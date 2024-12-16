@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const initialState: PaymentInfo = {
-	cardName: "José Leandro de Abreu",
-	cardNumber: "1245 2356 7898 6532",
-	cardVerificationNumber: 753,
-	expiresMonth: 12,
-	expiresYear: 29,
+	cardName: "",
+	cardNumber: "",
+	cardVerificationNumber: 0,
+	expiresMonth: 0,
+	expiresYear: 0,
 }
 
 const paymentSlice = createSlice({
