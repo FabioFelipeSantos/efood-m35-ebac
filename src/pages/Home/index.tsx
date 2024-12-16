@@ -1,9 +1,10 @@
-import Header from "../../components/Header"
-import { RestaurantType } from "../../types/models"
-import { ListCardsContainer } from "../../styles"
-import Card from "../../components/Card"
-import capitalizeWords from "../../utils/capitalizeWord"
 import { useNavigate } from "react-router-dom"
+
+import Header from "../../components/Header"
+import Card from "../../components/Card"
+import { ListCardsContainer } from "../../styles"
+
+import capitalizeWords from "../../utils/capitalizeWord"
 
 type Props = {
 	restaurants: RestaurantType[]

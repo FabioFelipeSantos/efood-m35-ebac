@@ -1,11 +1,15 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 import cartReducer from "./reducers/cartSlice"
 import api from "./../services/api"
+import deliveryReducer from "./reducers/deliverySlice"
+import paymentReducer from "./reducers/paymentSlice"
 
 const store = configureStore({
 	reducer: {
 		cart: cartReducer,
 		[api.reducerPath]: api.reducer,
+		delivery: deliveryReducer,
+		payment: paymentReducer,
 	},
 	middleware: getDefaultMiddleware => getDefaultMiddleware().concat(api.middleware),
 })

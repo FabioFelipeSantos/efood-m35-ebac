@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import { colors, Title } from "../../styles"
 import { Link } from "react-router-dom"
+
+import { colors, Title } from "../../styles"
 
 type HeaderProps = {
 	page: "home" | "profile"

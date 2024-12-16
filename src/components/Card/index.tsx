@@ -1,5 +1,5 @@
-import { colors, Title } from "../../styles"
 import Button from "../Button"
+import { colors, Title } from "../../styles"
 import * as S from "./styles"
 import star from "../../assets/star.svg"
 

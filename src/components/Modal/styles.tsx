@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import { colors, Title } from "../../styles"
+
 import { ButtonStyle } from "../Button/styles"
+import { colors, Title } from "../../styles"
 
 export const ModalContainer = styled.div`
 	width: 100%;

@@ -1,10 +1,12 @@
-import logo from "../../assets/logo.png"
+import { useNavigate } from "react-router-dom"
+
 import { colors, Title } from "../../styles"
 import * as S from "./styles"
+import logo from "../../assets/logo.png"
 import fundo from "../../assets/fundo.png"
-import { useNavigate } from "react-router-dom"
-import { closeCart, isCartOpen, numberOfItemsOnCart, openCart } from "../../store/reducers/cartSlice"
+
 import { useAppDispatch, useAppSelector } from "../../store/hooks"
+import { closeCart, isCartOpen, numberOfItemsOnCart, openCart } from "../../store/reducers/cartSlice"
 
 type Props = {
 	page?: "home" | "profile"

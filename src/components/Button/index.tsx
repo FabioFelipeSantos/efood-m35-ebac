@@ -5,11 +5,18 @@ type Props = {
 	textColor: "light" | "dark"
 	isNonClickable?: boolean
 	onClick?: () => void
+	type?: "submit" | "button"
 }
 
-export default function Button({ text, textColor, isNonClickable = false, onClick = () => {} }: Props) {
+export default function Button({
+	type = "button",
+	text,
+	textColor,
+	isNonClickable = false,
+	onClick = () => {},
+}: Props) {
 	return (
-		<ButtonStyle isNonClickable={isNonClickable} color={textColor} onClick={onClick}>
+		<ButtonStyle type={type} isNonClickable={isNonClickable} color={textColor} onClick={onClick}>
 			{text}
 		</ButtonStyle>
 	)

@@ -1,48 +1,30 @@
+import { FooterContainer, FooterGraphicContainer, FooterInfos, SocialsList } from "./styles"
 import facebook from "../../assets/facebook.svg"
 import instagram from "../../assets/instagram.svg"
 import twitter from "../../assets/twitter.svg"
 import logo from "../../assets/logo.png"
-import { FooterContainer, FooterGraphicContainer, FooterInfos, SocialsList } from "./styles"
 
 export default function Footer() {
 	return (
 		<FooterContainer>
 			<div className="container">
 				<FooterGraphicContainer>
-					<img
-						src={logo}
-						alt="EFOOD logo"
-					/>
+					<img src={logo} alt="EFOOD logo" />
 
 					<SocialsList>
 						<li>
-							<a
-								href="#"
-								target="_blank">
-								<img
-									src={instagram}
-									alt="Instagram logo"
-								/>
+							<a href="#" target="_blank">
+								<img src={instagram} alt="Instagram logo" />
 							</a>
 						</li>
 						<li>
-							<a
-								href="#"
-								target="_blank">
-								<img
-									src={facebook}
-									alt="Facebook logo"
-								/>
+							<a href="#" target="_blank">
+								<img src={facebook} alt="Facebook logo" />
 							</a>
 						</li>
 						<li>
-							<a
-								href="#"
-								target="_blank">
-								<img
-									src={twitter}
-									alt="Twitter logo"
-								/>
+							<a href="#" target="_blank">
+								<img src={twitter} alt="Twitter logo" />
 							</a>
 						</li>
 					</SocialsList>

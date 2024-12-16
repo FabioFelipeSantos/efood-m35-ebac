@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { Menu } from "../../types/models"
 
 type Cart = {
 	dishItems: Menu[]
@@ -32,6 +31,10 @@ const cartSlice = createSlice({
 		removeItemOfCart: (state, action: PayloadAction<number>) => {
 			state.dishItems = state.dishItems.filter(dish => dish.id !== action.payload)
 		},
+		clearCart: state => {
+			state.dishItems = []
+			state.isOpen = false
+		},
 	},
 	selectors: {
 		isCartOpen: state => state.isOpen,
@@ -40,10 +43,14 @@ const cartSlice = createSlice({
 			return state.dishItems.reduce((total, dish) => (total += dish.preco), 0)
 		},
 		numberOfItemsOnCart: state => state.dishItems.length,
+		selectTotalAmountOfCart: state => {
+			return state.dishItems.reduce((acc, cur) => (acc += cur.preco), 0)
+		},
 	},
 })
 
-export const { openCart, closeCart, addItemToCart, removeItemOfCart } = cartSlice.actions
-export const { isCartOpen, cartItems, totalCostOfCart, numberOfItemsOnCart } = cartSlice.selectors
+export const { openCart, closeCart, addItemToCart, removeItemOfCart, clearCart } = cartSlice.actions
+export const { isCartOpen, cartItems, totalCostOfCart, numberOfItemsOnCart, selectTotalAmountOfCart } =
+	cartSlice.selectors
 
 export default cartSlice.reducer

@@ -1,8 +1,9 @@
 import { BrowserRouter } from "react-router"
 
-import { GlobalStyle } from "./styles"
-import MyRoutes from "./routes"
 import Footer from "./components/Footer"
+import { GlobalStyle } from "./styles"
+
+import MyRoutes from "./routes"
 import { useGetRestaurantsQuery } from "./services/api"
 
 export default function App() {

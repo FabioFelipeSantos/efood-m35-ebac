@@ -55,3 +55,50 @@ export const ListCardsContainer = styled.ul<ListDishesProps>`
 	column-gap: ${props => (props.gridColumns === 2 ? "80px" : "32px")};
 	row-gap: ${props => (props.gridColumns === 2 ? "48px" : "32px")};
 `
+
+export const SidebarInputContainer = styled.div`
+	margin-top: 12px;
+	&:first-of-type {
+		margin-top: 16px;
+	}
+
+	label {
+		margin-bottom: 8px;
+		font-size: 14px;
+		font-weight: bold;
+		display: block;
+	}
+
+	input {
+		width: 100%;
+		padding: 8px;
+		border: none;
+		background-color: ${colors.mainLight};
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 16px;
+		color: #4b4b4b;
+
+		&:focus-within {
+			border: 2px solid transparent;
+			outline: hsl(240, 100%, 65%) solid 2px;
+			outline-offset: 0;
+		}
+
+		&.is-error {
+			border: 2px solid hsl(0, 100%, 40%);
+			&:focus-within {
+				border: 2px solid transparent;
+				outline: hsl(0, 100%, 55%) solid 2px;
+				outline-offset: 0;
+			}
+		}
+	}
+
+	div {
+		margin-top: 4px;
+		margin-left: 4px;
+		font-size: 14px;
+		color: hsl(0, 100%, 28%);
+	}
+`

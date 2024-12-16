@@ -1,12 +1,12 @@
 import Button from "../Button"
-
-import close from "../../assets/close1.png"
 import * as S from "./styles"
 import { Title } from "../../styles"
-import { Menu } from "../../types/models"
-import changeCurrency from "../../utils/changeCurrency"
+import close from "../../assets/close1.png"
+
 import { useAppDispatch } from "../../store/hooks"
 import { addItemToCart, openCart } from "../../store/reducers/cartSlice"
+
+import changeCurrency from "../../utils/changeCurrency"
 
 type Props = {
 	dish: Menu
